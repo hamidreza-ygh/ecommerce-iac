@@ -1,0 +1,14 @@
+applications:
+  - name: ${app_name}
+    project: default
+    sources:
+    - repoURL: ${user_management_repo_url}
+      targetRevision: HEAD
+      path: ${user_management_repo_path}
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: ${app_namespace}
+    syncPolicy:
+      automated: {}
+      syncOptions:
+        - CreateNamespace=true
